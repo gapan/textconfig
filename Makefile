@@ -2,6 +2,7 @@
 dist:
 	rm -rf dist
 	python setup.py sdist
+.PHONY: dist
 
 test-dist: dist
 	twine check dist/*

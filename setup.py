@@ -4,7 +4,7 @@
 # This software is licensed under the terms of the GPLv3 license.
 
 import sys
-from distutils.core import setup 
+from setuptools import setup
 from textconfig import __version__ as VERSION
 
 with open("README.md", "r") as fh:

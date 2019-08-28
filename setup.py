@@ -1,0 +1,26 @@
+# setup.py Install script for textconfig.py Copyright (C) 2011 George
+# Vlahavas E-mail: vlahavas ~ at ~ gmail ~ dot ~ com
+
+# This software is licensed under the terms of the GPLv3 license.
+
+import sys
+from distutils.core import setup 
+from textconfig import __version__ as VERSION
+
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
+with open("COPYING", "r") as fh:
+    license = fh.read()
+
+setup(name = 'textconfig',
+      version = VERSION,
+      description = 'Simple text configuration file reading/writing',
+      long_description = long_description,
+      license = license,
+      platforms = ["Platform Independent"],
+      author = 'George Vlahavas',
+      author_email = 'vlahavas@gmail.com',
+      url = 'https://github.com/gapan/textconfig',
+      py_modules = ['textconfig'],
+     )

@@ -10,15 +10,12 @@ from textconfig import __version__ as VERSION
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-with open("COPYING", "r") as fh:
-    license = fh.read()
-
 setup(name = 'textconfig',
       version = VERSION,
       description = 'Simple text configuration file reading/writing',
       long_description = long_description,
       long_description_content_type = 'text/markdown',
-      license = license,
+      license = 'GPLv3',
       platforms = ["Platform Independent"],
       author = 'George Vlahavas',
       author_email = 'vlahavas@gmail.com',

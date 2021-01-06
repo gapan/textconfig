@@ -49,13 +49,6 @@ class TextConfig:
         else:
             self.configopts[option].append(val)
 
-    def read(self):
-        """Returns all options/values from the config file as a dictionary.
-        NOTE: for Python versions < 3.6, the dictionary items will not be
-        in the same order as they are read from the configuration file.
-        """
-        return self.configopts
-
     def get(self, option):
         """Returns the first matching option in the file.
         This will raise a KeyError if no keypair with the specified option

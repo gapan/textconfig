@@ -52,7 +52,7 @@ class TextConfig:
     def get(self, option):
         """Returns the first matching option in the file.
         This will raise a KeyError if no keypair with the specified option
-        exists.
+        (key) exists.
         """
         return self.configopts[option][0]
 
@@ -82,7 +82,7 @@ class TextConfig:
         are multiple options with the same name, it will only
         change the first occurence.
         This will raise a KeyError if no keypair with the specified option
-        exists.
+        (key) exists.
         """
         self.configopts[option][0] = newval
 

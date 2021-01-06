@@ -68,14 +68,14 @@ class TextConfig:
         multiple occurences, it will change all of them.
         Raises a ValueError if there is no match for option/oldval.
         """
-        found = False
-        for i, val in enumerate(self.configopts[option]):
-            if val == oldval:
-                self.configopts[option][i] = newval
-                found = True
-        if not found:
-            raise ValueError('No option with the name {opt} and value {val}'
-                    .format(opt=option, val=oldval))
+        if option in self.configopts:
+            if oldval in self.configopts[option]:
+                for n, val in enumerate(self.configopts[option]):
+                    if val == oldval:
+                        self.configopts[option][n] = newval
+                return
+        raise ValueError('No option with the name {opt} and value {val}'
+                .format(opt=option, val=oldval))
 
     def set(self, option, newval):
         """Assigns a new value to an existing option. If there

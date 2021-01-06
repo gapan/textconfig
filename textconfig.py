@@ -1,10 +1,10 @@
 # vim:et:sta:sts=4:sw=4:ts=8:tw=79:
 #
-# Copyright (c) 2019 George Vlahavas
+# Copyright (c) 2019-2021 George Vlahavas
 #
 # Written by George Vlahavas <vlahavas@gmail.com>
 
-__version__ = '0.1'
+__version__ = '0.2'
 
 
 class TextConfig:

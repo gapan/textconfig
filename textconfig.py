@@ -6,6 +6,7 @@
 
 __version__ = '0.2'
 
+from collections import OrderedDict
 
 class TextConfig:
     """This is a class for managing simple configuration files with
@@ -20,24 +21,23 @@ class TextConfig:
     """
     def __init__(self, configfile):
         self.configfile = configfile
-        f = open(configfile, 'r')
-        self.configopts = {}
-        for line in f:
-            # Yes, we don't read any commented out lines. We
-            # might lose them afterwards when writing the
-            # file, but I don't want to deal with that, it's
-            # simpler this way.
-            if line.lstrip(' ').startswith('#'):
-                pass
-            else:
-                # also leave out any lines that are
-                # obviously not config lines (they don't
-                # have an = sign)
-                if '=' in line:
-                    option = line.partition('=')[0]
-                    value = line.partition('=')[2].replace('\n', '')
-                    self.add(option, value)
-        f.close()
+        with open(configfile, 'r') as f:
+            self.configopts = OrderedDict()
+            for line in f:
+                # Yes, we don't read any commented out lines. We
+                # might lose them afterwards when writing the
+                # file, but I don't want to deal with that, it's
+                # simpler this way.
+                if line.lstrip(' ').startswith('#'):
+                    pass
+                else:
+                    # also leave out any lines that are
+                    # obviously not config lines (they don't
+                    # have an = sign)
+                    if '=' in line:
+                        option = line.partition('=')[0]
+                        value = line.partition('=')[2].replace('\n', '')
+                        self.add(option, value)
 
     def add(self, option, val):
         """Adds a new option/value pair. If there is no option with that name
